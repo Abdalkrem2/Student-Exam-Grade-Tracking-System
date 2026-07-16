@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #F7F8FC;
+  --color-bg-tint: #EEF1FB;
+  --color-surface: #FFFFFF;
+  --color-text: #191B23;
+  --color-text-soft: #6E7191;
+  --color-border: #E4E7F5;
+
+  --color-primary: #0058BE;
+  --color-primary-bg: #EAF0FE;
+
+  --color-purple: #8455EF;
+  --color-purple-bg: #FFFBFF;
+
+  --color-pass: #10B981;
+  --color-pass-bg: #D1FAE5;
+  --color-fail: #BA1A1A;
+  --color-fail-bg: #FFDAD6;
+
+  --font-body: 'Inter', sans-serif;
+
+  --radius: 10px;
+  --radius-lg: 16px;
+  /* --shadow-card:; */
+  --container-max: 1140px;
+  --sidebar-w: 250px;
+}
+:root{
+    box-sizing: border-box;
+}
+.container-narrow {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.btn-ink {
+  background: var(--color-primary); 
+  color: #fff;
+   border: none;
+  border-radius: var(--radius); 
+  padding: 0.5rem 1.4rem; 
+  font-weight: 500; 
+  font-family: var(--font-body);
+  transition: background .15s ease;
+  text-decoration: none;
+}
+
+.site-navbar 
+{ 
+    background: var(--color-surface); 
+    border-bottom: 1px solid var(--color-border); 
+}
+.site-navbar .navbar-brand 
+{ font-family: var(--font-display);
+     font-weight: 800;
+      font-size: 1.3rem;
+       color: var(--color-text) !important; 
+}
+.site-navbar .navbar-brand .brand-mark 
+{ color: var(--color-primary); 
+}
+.site-navbar .nav-link 
+{ color: var(--color-text-soft) !important;
+     font-weight: 600; 
+}
+.site-navbar .nav-link.active, .site-navbar .nav-link:hover 
+{ color: var(--color-primary) !important; 
+}
+
+
+
