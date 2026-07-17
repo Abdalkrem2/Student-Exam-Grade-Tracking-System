@@ -1,4 +1,3 @@
-
 const STORAGE_KEYS = {
   USERS: "exam_users",
   EXAMS: "exam_exams",
@@ -139,6 +138,7 @@ function addExam(examData) {
   saveExams(exams);
   return newExam;
 }
+
 function getActiveExams() {
   return getExams().filter((e) => e.status === "Active");
 }
