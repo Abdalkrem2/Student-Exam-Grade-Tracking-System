@@ -51,6 +51,49 @@ function getUserById(id){
   return getUsers().find((u)=>u.id===id)||null;
 }
 
+// لا تنسى تراجعهم
+function getAnswerReview(result) {
+  const exam = getExamById(result.examId);
+  if (!exam) return [];
+ 
+  return result.answers
+    .map((answer) => {
+      const question = exam.questions.find((q) => q.id === answer.questionId);
+      if (!question) return null;
+ 
+      return {
+        questionText: question.text,
+        studentAnswer: answer.studentAnswer,
+        correctAnswer: getCorrectAnswerDisplay(question),
+        isCorrect: isAnswerCorrect(question, answer.studentAnswer),
+      };
+    })
+    .filter(Boolean);
+}
+
+function getCorrectAnswerDisplay(question) {
+  if (question.type === "multiple_answer") return question.correctAnswers.join(", ");
+  if (question.type === "true_false") return question.correctAnswer ? "True" : "False";
+  return question.correctAnswer;
+}
+
+function isAnswerCorrect(question, studentAnswer) {
+  if (question.type === "multiple_answer") {
+    const correctSet = [...question.correctAnswers].sort().join(",");
+    const givenSet = [...(studentAnswer || [])].sort().join(",");
+    return correctSet === givenSet;
+  }
+  if (question.type === "true_false") {
+    return (studentAnswer === "true" || studentAnswer === true) === question.correctAnswer;
+  }
+  if (question.type === "short_answer") {
+    return Number(studentAnswer) === Number(question.correctAnswer);
+  }
+  // mcq (default)
+  return studentAnswer === question.correctAnswer;
+}
+/* */
+
 
 
 //student
@@ -84,7 +127,6 @@ function saveExams(exams) {
 function getExamById(id) {
   return getExams().find((e) => e.id === id) || null;
 }
-
 function addExam(examData) {
   const exams = getExams();
   const newExam = {
@@ -100,6 +142,30 @@ function addExam(examData) {
 function getActiveExams() {
   return getExams().filter((e) => e.status === "Active");
 }
+function updateExam(id, updates) {
+  const exams = getExams();
+  const index = exams.findIndex((e) => e.id === id);
+  if (index === -1) return null;
+  exams[index] = { ...exams[index], ...updates };
+  saveExams(exams);
+  return exams[index];
+}
+function addQuestionToExam(examId, question) {
+  const exam = getExamById(examId);
+  if (!exam) return null;
+  const newQuestion = { id: generateId("q"), ...question };
+  exam.questions.push(newQuestion);
+  updateExam(examId, { questions: exam.questions });
+  return newQuestion;
+}
+
+function removeQuestionFromExam(examId, questionId) {
+  const exam = getExamById(examId);
+  if (!exam) return null;
+  const updatedQuestions = exam.questions.filter((q) => q.id !== questionId);
+  updateExam(examId, { questions: updatedQuestions });
+}
+
 
 
 
@@ -126,6 +192,8 @@ function getResultByStudentAndExam(studentId, examId) {
     ) || null
   );
 }
+//
+
 
 
 
