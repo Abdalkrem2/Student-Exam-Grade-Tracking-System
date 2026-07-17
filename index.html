@@ -9,27 +9,230 @@
  
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg site-navbar sticky-top py-3">
-    <div class="container-narrow d-flex justify-content-between align-items-center w-100">
-      <a class="navbar-brand" href="index.html">Exam<span class="brand-mark">Track</span></a>
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse flex-grow-0" id="navMenu">
-        <ul class="navbar-nav gap-4 align-items-center mt-3 mt-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-       
-        </ul>
-      </div>
-          
-            <ul class="navbar-nav gap-4 align-items-center mt-3 mt-lg-0">
-                 <li class="nav-item"><a href="login.html" class="btn-ink d-inline-block">Login</a></li>
-            </ul>
-        
+
+    <!-- NavBar -->
+<nav class="navbar navbar-expand-lg site-navbar sticky-top py-3">
+  <div class="container-narrow d-flex justify-content-between align-items-center w-100">
+    <a class="navbar-brand" href="index.html"><img class="logo" src="assets/images/logo.png" alt=""></a>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav gap-4 align-items-center mt-3 mt-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <a href="login.html" class="btn-ink d-inline-block mt-3 mt-lg-0">Login</a>
     </div>
-  </nav>  
+  </div>
+</nav> 
+
+<!-- Header -->
+  <header style="position:relative; overflow:hidden;" id="home">
+    <div class="math-float-bg">
+      <span class="math-symbol" style="top:8%; left:4%; font-size:40px; animation-delay:0s;">π</span>
+      <span class="math-symbol" style="top:55%; left:10%; font-size:28px; animation-delay:1s;">√</span>
+      <span class="math-symbol" style="top:15%; right:6%; font-size:48px; animation-delay:2s;">∑</span>
+      <span class="math-symbol" style="top:65%; right:15%; font-size:26px; animation-delay:1.5s;">÷</span>
+      <span class="math-symbol" style="top:40%; left:90%; font-size:40px; animation-delay:0s;">π</span>
+      <span class="math-symbol" style="top:55%; left:50%; font-size:28px; animation-delay:1s;">√</span>
+      <span class="math-symbol" style="top:25%; right:77%; font-size:48px; animation-delay:2s;">∑</span>
+      <span class="math-symbol" style="top:65%; right:15%; font-size:26px; animation-delay:1.5s;">÷</span>
+    </div>
+    <div class="container-narrow py-4">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center gap-4">
+  <div class="col-lg-6">
+          <span class="pill-badge mb-3 d-inline-block">Online Exam &amp; Grade Tracking</span>
+          <h1 class="header-text mb-3" style="line-height:1.2;">Track Excellence,<br><span style="color:var(--color-primary);">Master Every Exam</span></h1>
+          <p class="fs-5 mb-4" style="max-width:480px;">
+            Manage online exams, track grades, and review student performance through one simple platform.
+            The current demo includes a Mathematics exam.
+          </p>
+          <a href="login.html" class="btn-ink">Get Started</a>
+        </div>
+        <img  class="header-img" src="./assets/images/image.png" alt="">
+    </div>
+    </div>
+  </header>
+
+<!-- features -->
+    <section class="py-5" style="background:var(--color-bg-tint);">
+    <div class="container-narrow py-4">
+      <h2 class="text-center mb-5">Tailored for your academic role</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="feature-card h-100">
+            <img class="feature-icon mb-4" src="./assets/images/hat-icon.png" alt="">
+            <h3 class="h5 mb-3">For Teachers</h3>
+            <ul class="feature-list">
+              <li><span class="chk">✓</span> Manage students and create online exams.</li>
+              <li><span class="chk">✓</span> Track grades and student performance.</li>
+            </ul>
+                <span class="circal"></span>    
+          </div>
+      
+        </div>
+        <div class="col-md-6">
+          <div class="feature-card h-100">
+            <img class="feature-icon mb-4" src="./assets/images/person-feature.png" alt="">
+            <h3 class="h5 mb-3">For Students</h3>
+            <ul class="feature-list">
+              <li><span class="chk">✓</span> View and take active exams.</li>
+              <li><span class="chk">✓</span> Track grades and previous exam results.</li>
+            </ul>
+              <span class="circal light-purple" "></span>    
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+     <section id="about">
+    <div class="container-narrow py-4">
+        <div  class="d-flex flex-column flex-lg-row justify-content-between align-items-center gap-4">
+  <div class="col-lg-6">
+          <span class="pill-badge mb-3 d-inline-block">our mission</span>
+          <h1 class="header-text mb-3" style="line-height:1.2;">About ExamTrack</span></h1>
+          <p class="fs-5 mb-4" style="max-width:480px;">
+            ExamTrack helps teachers manage students and exams, and
+            allows students to take exams and track their results.
+          </p>
+        </div>
+        <img  class="header-img" src="./assets/images/about.png" alt="">
+    </div>
+    </div>
+</section>
+
+<!-- Purpose  -->
+<section>
+    <div class="container-narrow py-4 d-flex flex-column justify-content-center align-items-center purpose">
+        <h2>Our Purpose</h2>
+        <p>ExamTrack provides a simple system for managing online exams, grades, and student
+        performance. We believe that technology should empower educators and students by
+        removing technical barriers to academic success.</p>
+    </div>
+</section>
+<!-- how it works -->
+  <section class="py-5 text-center" style="background-color: var(--color-bg-tint);">
+    <div class="container-narrow py-4">
+      <h2 class="text-center mb-5">How It Works</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="feature-card step-card h-100">
+           <img  class="step-icon"src="./assets/images/1.png" alt="">
+            <h3 class="h6">1. Login</h3>
+            <p class="small mb-0">Login as a Teacher or Student to access your personalized dashboard.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card step-card h-100">
+             <img  class="step-icon"src="./assets/images/2.png" alt="">
+            <h3 class="h6">2. Manage or Take</h3>
+            <p class="small mb-0">Teachers manage exams while students take them in a secure environment.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card step-card h-100">
+             <img  class="step-icon"src="./assets/images/3.png" alt="">
+            <h3 class="h6">3. Results</h3>
+            <p class="small mb-0">Instantly view, save, and track grades and academic progress over time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact  -->
+  <section class="py-5" id="contact">
+  <div class="container-narrow">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="contact-info-card mb-4">
+          <div class="d-flex align-items-start gap-3 mb-4">
+           <img class="contact-icons" src="assets/images/message-icon.png" alt="Location icon">
+            <div>
+              <p class="fw-bold mb-0">Email Support</p>
+              <p class="small mb-0">support@examtrack.com</p>
+            </div>
+          </div>
+          <div class="d-flex align-items-start gap-3 mb-4">
+           <img class="contact-icons" src="assets/images/phone-icon.png" alt="Location icon">
+            <div>
+              <p class="fw-bold mb-0">Phone</p>
+              <p class="small mb-0">+962 7 89889203</p>
+            </div>
+          </div>
+          <div class="d-flex align-items-start gap-3 mb-4">
+           <img class="contact-icons" src="assets/images/location-icon.png" alt="Location icon">
+            <div>
+              <p class="fw-bold mb-0">Office Location</p>
+              <p class="small mb-0">Amman, Jordan</p>
+            </div>
+          </div>
+          <div class="d-flex align-items-start gap-3">
+            <img class="contact-icons" src="assets/images/time-icon.png" alt="Clock icon" >
+            <div>
+              <p class="fw-bold mb-0">Support Hours</p>
+              <p class="small mb-0">Sunday – Thursday, 9:00 AM – 4:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <img src="assets/images/contact.png" alt="Contact illustration"
+             style="width:100%; max-width:280px; display:block; margin:0 auto; min-height:180px;"
+             >
+      </div>
+
+      <div class="col-lg-8">
+        <div class="contact-form-card">
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Full Name</label>
+                <input type="text" class="form-control-paper" placeholder="Enter your full name">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Email Address</label>
+                <input type="email" class="form-control-paper" placeholder="name@example.com">
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-bold">Subject</label>
+                <input type="text" class="form-control-paper" placeholder="How can we help?">
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-bold">Message</label>
+                <textarea class="form-control-paper" rows="5" placeholder="Describe your inquiry in detail..."></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-ink w-100">Send Message →</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- footer  -->
+  <footer class="site-footer py-5">
+    <div class="container-narrow d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <div>
+      <img class="footer-logo" src="assets/images/logo.png" alt="">
+      <p class="mb-0 small">© 2026 ExamTrack. All rights reserved.</p>
+      </div>
+      <div class="d-flex gap-4 footer-text">
+        <a href="#" >Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#" >Support</a>
+      </div>
+    </div>
+  </footer>
+  
+  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </body>

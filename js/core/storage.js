@@ -43,6 +43,16 @@ function addUser(user){
     return newUser;
 }
 
+function getUserByUsername(username) {
+  return getUsers().find((u) => u.username === username) || null;
+}
+
+function getUserById(id){
+  return getUsers().find((u)=>u.id===id)||null;
+}
+
+
+
 //student
 function getStudents(){
   return getUsers().filter((u)=>u.role==="Student")
@@ -51,7 +61,10 @@ function getStudents(){
 function addStudent(user){
 return addUser({...user,role:"Student"})
 }
-
+function getStudentById(id) {
+  const user = getUserById(id);
+  return user && user.role === "Student" ? user : null;
+}
 
 
 
@@ -59,12 +72,60 @@ return addUser({...user,role:"Student"})
 function getTeacher(){
   return getUsers().filter((u)=>u.role==="Teacher")
 }
-function addTeacher(user){
-return addUser({...user,role:"Teacher"})
+
+
+//exams
+function getExams() {
+  return safeParse(localStorage.getItem(STORAGE_KEYS.EXAMS), []);
+}
+function saveExams(exams) {
+  localStorage.setItem(STORAGE_KEYS.EXAMS, JSON.stringify(exams));
+}
+function getExamById(id) {
+  return getExams().find((e) => e.id === id) || null;
+}
+
+function addExam(examData) {
+  const exams = getExams();
+  const newExam = {
+    id: generateId("e"),
+    status: "Inactive",
+    questions: [],
+    ...examData,
+  };
+  exams.push(newExam);
+  saveExams(exams);
+  return newExam;
+}
+function getActiveExams() {
+  return getExams().filter((e) => e.status === "Active");
 }
 
 
 
+
+
+
+//result
+function getResults() {
+  return safeParse(localStorage.getItem(STORAGE_KEYS.RESULTS), []);
+}
+
+function saveResults(results) {
+  localStorage.setItem(STORAGE_KEYS.RESULTS, JSON.stringify(results));
+}
+
+function getResultsByStudent(studentId) {
+  return getResults().filter((r) => r.studentId === studentId);
+}
+
+function getResultByStudentAndExam(studentId, examId) {
+  return (
+    getResults().find(
+      (r) => r.studentId === studentId && r.examId === examId
+    ) || null
+  );
+}
 
 
 
