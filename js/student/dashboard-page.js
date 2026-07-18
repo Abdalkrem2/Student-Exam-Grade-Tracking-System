@@ -311,11 +311,6 @@ document.getElementById(
     }
 
 }
-
-
-
-
-
 /*localStorage.removeItem("exam_session");*/
 function startExam(examId) {
 
