@@ -374,8 +374,9 @@ Dashboard Welcome
 ========================= */
 
 .exams-container {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, minmax(240px, 300px));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
 }
 
@@ -1336,12 +1337,41 @@ tbody tr:last-child td {
     }
 }
 
-.start-exam-button.completed {
-    color: #9b9ba7;
-    background-color: #eeeef3;
-    cursor: not-allowed;
+/* =========================
+   Exam Review Link
+========================= */
+
+.exam-title-row {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
 }
 
+.exam-title-row h3 {
+    margin: 0;
+}
+
+.review-link {
+    padding: 0;
+    border: none;
+    color: #0064cc;
+    background-color: transparent;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.review-link:hover {
+    text-decoration: underline;
+}
+
+.start-exam-button.completed,
 .start-exam-button.completed:hover {
-    background-color: #eeeef3; 
+    color: #8b8b99;
+    background-color: #eeeef3;
+    cursor: not-allowed;
 }
