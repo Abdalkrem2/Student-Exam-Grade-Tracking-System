@@ -42,6 +42,22 @@ function addUser(user){
     return newUser;
 }
 
+function updateUser(id, updates) {
+  const users = getUsers();
+  const index = users.findIndex((u) => u.id === id);
+  if (index === -1) return null;
+  users[index] = { ...users[index], ...updates };
+  saveUsers(users);
+  return users[index];
+}
+
+function deleteUser(id) {
+  const users = getUsers().filter((u) => u.id !== id);
+  saveUsers(users);
+}
+
+
+
 function getUserByUsername(username) {
   return getUsers().find((u) => u.username === username) || null;
 }
@@ -108,11 +124,30 @@ function getStudentById(id) {
   return user && user.role === "Student" ? user : null;
 }
 
+function updateStudent(id, updates) {
+  return updateUser(id, updates);
+}
+
+function deleteStudent(id) {
+  deleteUser(id);
+}
+
+function searchStudents(query) {
+  const q = query.trim().toLowerCase();
+  if (!q) return getStudents();
+  return getStudents().filter(
+    (s) =>
+      s.name.toLowerCase().includes(q) ||
+      s.username.toLowerCase().includes(q) ||
+      (s.nationalId || "").includes(q)
+  );
+}
+
 
 
 //teacher
-function getTeacher(){
-  return getUsers().filter((u)=>u.role==="Teacher")
+function getTeacher() {
+  return getUsers().find((u) => u.role === "Teacher") || null;
 }
 
 

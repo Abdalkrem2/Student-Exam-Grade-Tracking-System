@@ -1,6 +1,23 @@
+const teacher = requireRole("Teacher");
+
 document.addEventListener("DOMContentLoaded", function () {
   updateDashboardStatistics();
   renderExamsTable();
+
+  const searchInput = document.getElementById("examSearchInput");
+  const statusFilter = document.getElementById("statusFilter");
+
+  if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      renderExamsTable(searchInput.value, statusFilter ? statusFilter.value : "All Exams");
+    });
+  }
+
+  if (statusFilter) {
+    statusFilter.addEventListener("change", function () {
+      renderExamsTable(searchInput ? searchInput.value : "", statusFilter.value);
+    });
+  }
 });
 
 function updateDashboardStatistics() {
@@ -26,12 +43,29 @@ function updateDashboardStatistics() {
   }
 }
 
-function renderExamsTable() {
+function renderExamsTable(searchTerm = "", statusFilterValue = "All Exams") {
   const tableBody = document.getElementById("examsTableBody");
 
   if (!tableBody) return;
 
-  const exams = getExams();
+  const normalizedSearch = String(searchTerm).trim().toLowerCase();
+
+  let exams = getExams();
+
+  // Filter by title (search)
+  if (normalizedSearch) {
+    exams = exams.filter(function (exam) {
+      return String(exam.title || "").toLowerCase().includes(normalizedSearch);
+    });
+  }
+
+  // Filter by status dropdown
+  if (statusFilterValue && statusFilterValue !== "All Exams") {
+    exams = exams.filter(function (exam) {
+      return (exam.status || "Inactive") === statusFilterValue;
+    });
+  }
+
   const results = getResults();
 
   tableBody.innerHTML = "";
@@ -40,7 +74,9 @@ function renderExamsTable() {
     tableBody.innerHTML = `
       <tr>
         <td colspan="6" style="text-align: center;">
-          No exams found
+          ${normalizedSearch || statusFilterValue !== "All Exams"
+            ? "No exams match your search/filter."
+            : "No exams found"}
         </td>
       </tr>
     `;
@@ -162,7 +198,13 @@ function deleteExam(examId) {
 
   saveResults(updatedResults);
 
-  renderExamsTable();
+  const searchInput = document.getElementById("examSearchInput");
+  const statusFilter = document.getElementById("statusFilter");
+
+  renderExamsTable(
+    searchInput ? searchInput.value : "",
+    statusFilter ? statusFilter.value : "All Exams"
+  );
   updateDashboardStatistics();
 }
 

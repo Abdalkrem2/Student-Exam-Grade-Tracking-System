@@ -124,8 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const nationalId =
         student.nationalId ||
-        student.nationalID ||
-        student.nationalNumber ||
         "Not provided";
 
       const phone =
@@ -164,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </td>
 
         <td>
-          ${escapeHTML(maskNationalId(nationalId))}
+          ${escapeHTML(nationalId)}
         </td>
 
         <td>
