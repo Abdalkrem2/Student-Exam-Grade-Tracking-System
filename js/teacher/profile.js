@@ -38,8 +38,7 @@ function displayProfile(user) {
 
   const nationalId =
     user.nationalId ||
-    user.nationalID ||
-    user.nationalNumber ||
+ 
     "Not provided";
 
   const email =
@@ -61,7 +60,7 @@ function displayProfile(user) {
   setElementText("fullName", fullName);
   setElementText("gender", gender);
   setElementText("phoneNumber", phone);
-  setElementText("nationalId", maskNationalId(nationalId));
+  setElementText("nationalId",nationalId);
 
   setElementText("emailAddress", email);
   setElementText("username", username);
