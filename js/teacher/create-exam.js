@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const teacher = requireRole("Teacher");
 
 document
@@ -6,6 +7,23 @@ document
     e.preventDefault();
     logout();
   });
+=======
+
+const teacher = requireRole("Teacher");
+
+const logoutLink = document.getElementById("logoutLink");
+
+if (logoutLink) {
+    logoutLink.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        localStorage.removeItem("exam_session");
+        sessionStorage.clear();
+
+        window.location.href = "../index.html";
+    });
+}
+>>>>>>> 7d90939f5caf260ce3fbdb5aa8ef229bd23f731e
 
 // ========================================
 // معرفة هل الصفحة Create أم Edit
@@ -448,6 +466,7 @@ function hideError() {
   formError.style.display = "none";
 }
 
+<<<<<<< HEAD
 function escapeHTML(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -456,3 +475,16 @@ function escapeHTML(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
+=======
+  const exam = addExam({
+    title,
+    dateTime,
+    numQuestions: draftQuestions.length,
+    status,
+  });
+
+  draftQuestions.forEach(q => addQuestionToExam(exam.id, q));
+
+  window.location.href = "exams.html";
+});
+>>>>>>> 7d90939f5caf260ce3fbdb5aa8ef229bd23f731e
